@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>ARProject-01</title>
-    <script src="aframe.min.js"></script>
-    <script src="aframe-ar.js"></script>
-    <script src="aframe-extras.min.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>AR DEMO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, shrink-to-fit=no" />
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.3.1/aframe/build/aframe-ar-nft.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <style>
+    * {
+      margin: 0; padding: 0;
+    }
 
-  <body style="margin:0px; overflow:hidden;">
-    <a-scene embedded arjs vr-mode-ui="enabled: false">
-      <a-assets>
-        <a-asset-item id="model" src="blonde_dance.glb"></a-asset-item>
-      </a-assets>
-      
-      <a-marker preset="hiro">
-        <a-box position="0 0.5 0" wireframe="true"></a-box>
-        <a-entity gltf-model="#model" animation-mixer></a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+    body {
+      overflow: hidden;
+      cursor: none;
+    }
+  </style>
+</head>
+<body>
+  <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
+    <a-assets>
+      <a-asset-item id="boxing" src="blonde_dance.glb"></a-asset-item>
+    </a-assets>
+    <a-marker preset="hiro">
+      <a-entity gltf-model="#boxing" animation-mixer></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
 </html>
